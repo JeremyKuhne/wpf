@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <RunConfiguration>
+    <EnvironmentVariables>
+      <DOTNET_ROOT>%DOTNET_ROOT%</DOTNET_ROOT>
+      <DOTNET_MULTILEVEL_LOOKUP>%DOTNET_MULTILEVEL_LOOKUP%</DOTNET_MULTILEVEL_LOOKUP>
+    </EnvironmentVariables>
+  </RunConfiguration>
+</RunSettings>

@@ -8,6 +8,7 @@
     <DefineConstants>$(DefineConstants);OLDRESOURCES;SYSTEM_XAML</DefineConstants>
     <EnableAnalyzers>true</EnableAnalyzers>
     <Nullable>enable</Nullable>
+    <PackageVersion>$(AssemblyVersion)</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

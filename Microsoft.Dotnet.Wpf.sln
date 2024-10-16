@@ -100,6 +100,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsBase-ref", "src\Microsoft.DotNet.Wpf\src\WindowsBase\ref\WindowsBase-ref.csproj", "{8D2B8BD2-25A5-47FD-B1E8-87E800CA2184}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B0EFDB12-C931-4E7F-A6C2-D4AC111D7EDF}"
+	ProjectSection(SolutionItems) = preProject
+		src\Microsoft.DotNet.Wpf\tests\Directory.Build.props = src\Microsoft.DotNet.Wpf\tests\Directory.Build.props
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PresentationFramework-SystemCore", "src\Microsoft.DotNet.Wpf\src\Extensions\PresentationFramework-SystemCore\PresentationFramework-SystemCore.csproj", "{64366C3F-3542-4CC1-85A8-CC6B8C9B8C84}"
 EndProject
@@ -240,6 +243,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PresentationNative", "src\Microsoft.DotNet.Wpf\redist\PresentationNative\PresentationNative.vcxproj", "{AF9084C3-BF37-4A56-A851-89F3BAE731B3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{A48B585E-6AB0-4F8D-8484-77F37CB44437}"
+	ProjectSection(SolutionItems) = preProject
+		src\Microsoft.DotNet.Wpf\tests\UnitTests\Directory.Build.props = src\Microsoft.DotNet.Wpf\tests\UnitTests\Directory.Build.props
+		src\Microsoft.DotNet.Wpf\tests\UnitTests\Directory.Build.targets = src\Microsoft.DotNet.Wpf\tests\UnitTests\Directory.Build.targets
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PresentationFramework.Fluent", "src\Microsoft.DotNet.Wpf\src\Themes\PresentationFramework.Fluent\PresentationFramework.Fluent.csproj", "{3F2C0E0E-BB13-46D9-8D9A-08256A49ECA9}"
 EndProject
@@ -248,9 +255,15 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "eng", "eng", "{92968783-2008-4A16-A823-6737224FEB9E}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
-		eng\WpfArcadeSdk\Sdk\Sdk.props = eng\WpfArcadeSdk\Sdk\Sdk.props
-		eng\WpfArcadeSdk\Sdk\Sdk.targets = eng\WpfArcadeSdk\Sdk\Sdk.targets
-		eng\WpfArcadeSdk\tools\SdkReferences.targets = eng\WpfArcadeSdk\tools\SdkReferences.targets
+		build.cmd = build.cmd
+		eng\common\build.ps1 = eng\common\build.ps1
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		global.json = global.json
+		eng\common\init-tools-native.ps1 = eng\common\init-tools-native.ps1
+		eng\restore-toolset.ps1 = eng\restore-toolset.ps1
+		Restore.cmd = Restore.cmd
+		start-vs.cmd = start-vs.cmd
 		eng\Versions.props = eng\Versions.props
 	EndProjectSection
 EndProject
@@ -278,9 +291,85 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\wpf.vsconfig = Documentation\wpf.vsconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationCore.Tests", "src\Microsoft.DotNet.Wpf\tests\UnitTests\PresentationCore.Tests\PresentationCore.Tests.csproj", "{398CD1C6-A92E-4B63-97CD-4CABD96FA868}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Windows.Primitives", "src\Microsoft.DotNet.Wpf\src\System.Windows.Primitives\System.Windows.Primitives.csproj", "{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Xaml.Tests", "src\Microsoft.DotNet.Wpf\tests\UnitTests\System.Xaml.Tests\System.Xaml.Tests.csproj", "{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationCore.Tests", "src\Microsoft.DotNet.Wpf\tests\UnitTests\PresentationCore.Tests\PresentationCore.Tests.csproj", "{8B199D3D-328E-4E09-A001-3EADFEFE613B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Xaml.Tests", "src\Microsoft.DotNet.Wpf\tests\UnitTests\System.Xaml.Tests\System.Xaml.Tests.csproj", "{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsBase.Tests", "src\Microsoft.DotNet.Wpf\tests\UnitTests\WindowsBase.Tests\WindowsBase.Tests.csproj", "{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WpfArcadeSDK", "WpfArcadeSDK", "{8F62A3BF-C618-49B1-8B09-82C32C3427BB}"
+	ProjectSection(SolutionItems) = preProject
+		eng\WpfArcadeSdk\Sdk\Sdk.props = eng\WpfArcadeSdk\Sdk\Sdk.props
+		eng\WpfArcadeSdk\Sdk\Sdk.targets = eng\WpfArcadeSdk\Sdk\Sdk.targets
+		eng\common\tools.ps1 = eng\common\tools.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{C70269FA-2569-48B7-B246-A263BBC5698F}"
+	ProjectSection(SolutionItems) = preProject
+		eng\WpfArcadeSdk\tools\AddDrtsToPayload.targets = eng\WpfArcadeSdk\tools\AddDrtsToPayload.targets
+		eng\WpfArcadeSdk\tools\ApiCompat.props = eng\WpfArcadeSdk\tools\ApiCompat.props
+		eng\WpfArcadeSdk\tools\ApiCompat.targets = eng\WpfArcadeSdk\tools\ApiCompat.targets
+		eng\WpfArcadeSdk\tools\CodeAnalysis.props = eng\WpfArcadeSdk\tools\CodeAnalysis.props
+		eng\WpfArcadeSdk\tools\CodeAnalysis.targets = eng\WpfArcadeSdk\tools\CodeAnalysis.targets
+		eng\WpfArcadeSdk\tools\CodeGen.props = eng\WpfArcadeSdk\tools\CodeGen.props
+		eng\WpfArcadeSdk\tools\configure-machine.ps1 = eng\WpfArcadeSdk\tools\configure-machine.ps1
+		eng\WpfArcadeSdk\tools\CopyRedistFile.targets = eng\WpfArcadeSdk\tools\CopyRedistFile.targets
+		eng\WpfArcadeSdk\tools\CreateTestPayload.targets = eng\WpfArcadeSdk\tools\CreateTestPayload.targets
+		eng\WpfArcadeSdk\tools\DrtsToRun.props = eng\WpfArcadeSdk\tools\DrtsToRun.props
+		eng\WpfArcadeSdk\tools\ExtendedAssemblyInfo.props = eng\WpfArcadeSdk\tools\ExtendedAssemblyInfo.props
+		eng\WpfArcadeSdk\tools\ExtendedAssemblyInfo.targets = eng\WpfArcadeSdk\tools\ExtendedAssemblyInfo.targets
+		eng\WpfArcadeSdk\tools\FixupProjectReferences.targets = eng\WpfArcadeSdk\tools\FixupProjectReferences.targets
+		eng\WpfArcadeSdk\tools\FolderPaths.props = eng\WpfArcadeSdk\tools\FolderPaths.props
+		eng\WpfArcadeSdk\tools\FolderPaths.targets = eng\WpfArcadeSdk\tools\FolderPaths.targets
+		eng\WpfArcadeSdk\tools\GenApi.props = eng\WpfArcadeSdk\tools\GenApi.props
+		eng\WpfArcadeSdk\tools\GenApi.targets = eng\WpfArcadeSdk\tools\GenApi.targets
+		eng\WpfArcadeSdk\tools\GenerateAvTraceMessages.targets = eng\WpfArcadeSdk\tools\GenerateAvTraceMessages.targets
+		eng\WpfArcadeSdk\tools\GenerateModuleDefinitionFile.targets = eng\WpfArcadeSdk\tools\GenerateModuleDefinitionFile.targets
+		eng\WpfArcadeSdk\tools\GenerateProgramFileForTests.props = eng\WpfArcadeSdk\tools\GenerateProgramFileForTests.props
+		eng\WpfArcadeSdk\tools\GenerateProgramFileForTests.targets = eng\WpfArcadeSdk\tools\GenerateProgramFileForTests.targets
+		eng\WpfArcadeSdk\tools\GenXmlStringTable.pl = eng\WpfArcadeSdk\tools\GenXmlStringTable.pl
+		eng\WpfArcadeSdk\tools\InlineTasks.targets = eng\WpfArcadeSdk\tools\InlineTasks.targets
+		eng\WpfArcadeSdk\tools\NoInternalTypeHelper.targets = eng\WpfArcadeSdk\tools\NoInternalTypeHelper.targets
+		eng\WpfArcadeSdk\tools\NoTargets.props = eng\WpfArcadeSdk\tools\NoTargets.props
+		eng\WpfArcadeSdk\tools\NoTargets.targets = eng\WpfArcadeSdk\tools\NoTargets.targets
+		eng\WpfArcadeSdk\tools\Packaging.props = eng\WpfArcadeSdk\tools\Packaging.props
+		eng\WpfArcadeSdk\tools\Packaging.targets = eng\WpfArcadeSdk\tools\Packaging.targets
+		eng\WpfArcadeSdk\tools\Pbt.props = eng\WpfArcadeSdk\tools\Pbt.props
+		eng\WpfArcadeSdk\tools\Pbt.targets = eng\WpfArcadeSdk\tools\Pbt.targets
+		eng\WpfArcadeSdk\tools\pre-commit.githook = eng\WpfArcadeSdk\tools\pre-commit.githook
+		eng\WpfArcadeSdk\tools\ProjectReferences.props = eng\WpfArcadeSdk\tools\ProjectReferences.props
+		eng\WpfArcadeSdk\tools\ProjectReferences.targets = eng\WpfArcadeSdk\tools\ProjectReferences.targets
+		eng\WpfArcadeSdk\tools\Publishing.props = eng\WpfArcadeSdk\tools\Publishing.props
+		eng\WpfArcadeSdk\tools\Publishing.targets = eng\WpfArcadeSdk\tools\Publishing.targets
+		eng\WpfArcadeSdk\tools\Redist.props = eng\WpfArcadeSdk\tools\Redist.props
+		eng\WpfArcadeSdk\tools\Redist.targets = eng\WpfArcadeSdk\tools\Redist.targets
+		eng\WpfArcadeSdk\tools\ReferenceAssembly.props = eng\WpfArcadeSdk\tools\ReferenceAssembly.props
+		eng\WpfArcadeSdk\tools\ReferenceAssembly.targets = eng\WpfArcadeSdk\tools\ReferenceAssembly.targets
+		eng\WpfArcadeSdk\tools\ResourceLinking.targets = eng\WpfArcadeSdk\tools\ResourceLinking.targets
+		eng\WpfArcadeSdk\tools\RunDrtsLocal.targets = eng\WpfArcadeSdk\tools\RunDrtsLocal.targets
+		eng\WpfArcadeSdk\tools\runtests.cmd = eng\WpfArcadeSdk\tools\runtests.cmd
+		eng\WpfArcadeSdk\tools\runtests.ps1 = eng\WpfArcadeSdk\tools\runtests.ps1
+		eng\WpfArcadeSdk\tools\RuntimeFrameworkReference.props = eng\WpfArcadeSdk\tools\RuntimeFrameworkReference.props
+		eng\WpfArcadeSdk\tools\RuntimeFrameworkReference.targets = eng\WpfArcadeSdk\tools\RuntimeFrameworkReference.targets
+		eng\WpfArcadeSdk\tools\SdkReferences.targets = eng\WpfArcadeSdk\tools\SdkReferences.targets
+		eng\WpfArcadeSdk\tools\ShippingProjects.props = eng\WpfArcadeSdk\tools\ShippingProjects.props
+		eng\WpfArcadeSdk\tools\ShippingProjects.targets = eng\WpfArcadeSdk\tools\ShippingProjects.targets
+		eng\WpfArcadeSdk\tools\Signing.props = eng\WpfArcadeSdk\tools\Signing.props
+		eng\WpfArcadeSdk\tools\Signing.targets = eng\WpfArcadeSdk\tools\Signing.targets
+		eng\WpfArcadeSdk\tools\SourceLink.targets = eng\WpfArcadeSdk\tools\SourceLink.targets
+		eng\WpfArcadeSdk\tools\SystemResources.props = eng\WpfArcadeSdk\tools\SystemResources.props
+		eng\WpfArcadeSdk\tools\TargetFrameworks.props = eng\WpfArcadeSdk\tools\TargetFrameworks.props
+		eng\WpfArcadeSdk\tools\TestProjects.targets = eng\WpfArcadeSdk\tools\TestProjects.targets
+		eng\WpfArcadeSdk\tools\VersionSuffix.props = eng\WpfArcadeSdk\tools\VersionSuffix.props
+		eng\WpfArcadeSdk\tools\Wpf.Cpp.PrivateTools.props = eng\WpfArcadeSdk\tools\Wpf.Cpp.PrivateTools.props
+		eng\WpfArcadeSdk\tools\Wpf.Cpp.PrivateTools.targets = eng\WpfArcadeSdk\tools\Wpf.Cpp.PrivateTools.targets
+		eng\WpfArcadeSdk\tools\Wpf.Cpp.props = eng\WpfArcadeSdk\tools\Wpf.Cpp.props
+		eng\WpfArcadeSdk\tools\Wpf.Cpp.targets = eng\WpfArcadeSdk\tools\Wpf.Cpp.targets
+		eng\WpfArcadeSdk\tools\WpfProjectReference.targets = eng\WpfArcadeSdk\tools\WpfProjectReference.targets
+		eng\WpfArcadeSdk\tools\WPF_Generated_Files.txt = eng\WpfArcadeSdk\tools\WPF_Generated_Files.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1985,38 +2074,70 @@ Global
 		{3C43C553-2C1F-4EB9-8BF8-371D4A42E0FD}.Release|x64.Build.0 = Release|x64
 		{3C43C553-2C1F-4EB9-8BF8-371D4A42E0FD}.Release|x86.ActiveCfg = Release|Any CPU
 		{3C43C553-2C1F-4EB9-8BF8-371D4A42E0FD}.Release|x86.Build.0 = Release|Any CPU
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Debug|ARM64.ActiveCfg = Debug|ARM64
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Debug|ARM64.Build.0 = Debug|ARM64
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Debug|x64.ActiveCfg = Debug|x64
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Debug|x64.Build.0 = Debug|x64
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Debug|x86.ActiveCfg = Debug|x86
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Debug|x86.Build.0 = Debug|x86
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Release|Any CPU.Build.0 = Release|Any CPU
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Release|ARM64.ActiveCfg = Release|ARM64
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Release|ARM64.Build.0 = Release|ARM64
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Release|x64.ActiveCfg = Release|x64
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Release|x64.Build.0 = Release|x64
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Release|x86.ActiveCfg = Release|x86
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868}.Release|x86.Build.0 = Release|x86
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Debug|ARM64.ActiveCfg = Debug|ARM64
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Debug|ARM64.Build.0 = Debug|ARM64
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Debug|x64.ActiveCfg = Debug|x64
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Debug|x64.Build.0 = Debug|x64
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Debug|x86.ActiveCfg = Debug|x86
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Debug|x86.Build.0 = Debug|x86
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Release|ARM64.ActiveCfg = Release|ARM64
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Release|ARM64.Build.0 = Release|ARM64
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Release|x64.ActiveCfg = Release|x64
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Release|x64.Build.0 = Release|x64
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Release|x86.ActiveCfg = Release|x86
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0}.Release|x86.Build.0 = Release|x86
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Debug|x64.Build.0 = Debug|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Debug|x86.Build.0 = Debug|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Release|ARM64.Build.0 = Release|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Release|x64.ActiveCfg = Release|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Release|x64.Build.0 = Release|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Release|x86.ActiveCfg = Release|Any CPU
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6}.Release|x86.Build.0 = Release|Any CPU
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Debug|Any CPU.Build.0 = Debug|x86
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Debug|ARM64.Build.0 = Debug|ARM64
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Debug|x64.ActiveCfg = Debug|x64
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Debug|x64.Build.0 = Debug|x64
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Debug|x86.ActiveCfg = Debug|x86
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Debug|x86.Build.0 = Debug|x86
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Release|ARM64.ActiveCfg = Release|ARM64
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Release|ARM64.Build.0 = Release|ARM64
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Release|x64.ActiveCfg = Release|x64
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Release|x64.Build.0 = Release|x64
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Release|x86.ActiveCfg = Release|x86
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B}.Release|x86.Build.0 = Release|x86
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Debug|ARM64.Build.0 = Debug|ARM64
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Debug|x64.ActiveCfg = Debug|x64
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Debug|x64.Build.0 = Debug|x64
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Debug|x86.ActiveCfg = Debug|x86
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Debug|x86.Build.0 = Debug|x86
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Release|ARM64.ActiveCfg = Release|ARM64
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Release|ARM64.Build.0 = Release|ARM64
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Release|x64.ActiveCfg = Release|x64
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Release|x64.Build.0 = Release|x64
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Release|x86.ActiveCfg = Release|x86
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3}.Release|x86.Build.0 = Release|x86
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Debug|x64.Build.0 = Debug|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Debug|x86.Build.0 = Debug|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Release|ARM64.Build.0 = Release|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Release|x64.ActiveCfg = Release|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Release|x64.Build.0 = Release|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Release|x86.ActiveCfg = Release|Any CPU
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -2136,8 +2257,12 @@ Global
 		{A48B585E-6AB0-4F8D-8484-77F37CB44437} = {B0EFDB12-C931-4E7F-A6C2-D4AC111D7EDF}
 		{3F2C0E0E-BB13-46D9-8D9A-08256A49ECA9} = {5ACFB055-649D-4A01-98C2-B0BFE7E543D6}
 		{3C43C553-2C1F-4EB9-8BF8-371D4A42E0FD} = {60F4058B-D35B-42D2-B276-D44B3AC579BD}
-		{398CD1C6-A92E-4B63-97CD-4CABD96FA868} = {A48B585E-6AB0-4F8D-8484-77F37CB44437}
-		{93C6A5C8-4545-49DD-8D48-DDD6665ADFC0} = {A48B585E-6AB0-4F8D-8484-77F37CB44437}
+		{C40E13C4-F308-48B8-B67D-D7AB51F7EFE6} = {2EE4A2DA-70B3-4767-9D18-618DA0FE3105}
+		{8B199D3D-328E-4E09-A001-3EADFEFE613B} = {A48B585E-6AB0-4F8D-8484-77F37CB44437}
+		{261A0F0D-ABF7-4688-B210-5F7DA1B952C3} = {A48B585E-6AB0-4F8D-8484-77F37CB44437}
+		{D5A55FFC-E408-4BC5-B633-1CBBE9A94DE1} = {A48B585E-6AB0-4F8D-8484-77F37CB44437}
+		{8F62A3BF-C618-49B1-8B09-82C32C3427BB} = {92968783-2008-4A16-A823-6737224FEB9E}
+		{C70269FA-2569-48B7-B246-A263BBC5698F} = {8F62A3BF-C618-49B1-8B09-82C32C3427BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B4340004-DAC0-497D-B69D-CFA7CD93F567}

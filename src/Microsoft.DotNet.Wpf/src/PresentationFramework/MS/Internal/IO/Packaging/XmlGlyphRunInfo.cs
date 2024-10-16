@@ -13,7 +13,7 @@ using System.Xml;                       // For DOM objects
 using System.Diagnostics;               // For Assert
 using System.Globalization;             // For CultureInfo
 using System.Windows;                   // For ExceptionStringTable
-using Windows = System.Windows;         // For Windows.Point (as distinct from System.Drawing.Point)
+using Point = System.Windows.Point;     // For Windows.Point (as distinct from System.Drawing.Point)
 using System.Windows.Markup;            // For XmlLanguage
 
 namespace MS.Internal.IO.Packaging
@@ -59,8 +59,8 @@ namespace MS.Internal.IO.Packaging
         /// The point is given in page coordinates.
         /// double.NaN can be returned in either coordinate when the input glyph run is invalid.
         /// </remarks>
-        internal override Windows.Point StartPosition 
-        { 
+        internal override Point StartPosition
+        {
             get
             {
                 throw new NotSupportedException(SR.XmlGlyphRunInfoIsNonGraphic);
@@ -75,8 +75,8 @@ namespace MS.Internal.IO.Packaging
         /// The point is given in page coordinates.
         /// double.NaN can be returned in either coordinate when the input glyph run is invalid.
         /// </remarks>
-        internal override Windows.Point EndPosition 
-        { 
+        internal override Point EndPosition
+        {
             get
             {
                 throw new NotSupportedException(SR.XmlGlyphRunInfoIsNonGraphic);
