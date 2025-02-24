@@ -79,7 +79,7 @@ internal class OleServicesContext
     /// <summary>
     ///  Call OLE Interopo OleSetClipboard()
     /// </summary>
-    internal static int OleSetClipboard(IComDataObject dataObject)
+    internal int OleSetClipboard(IComDataObject dataObject)
     {
         if (Thread.CurrentThread.GetApartmentState() != ApartmentState.STA)
         {
@@ -92,7 +92,7 @@ internal class OleServicesContext
     /// <summary>
     ///  Call OLE Interop OleGetClipboard()
     /// </summary>
-    internal static int OleGetClipboard(ref IComDataObject dataObject)
+    internal int OleGetClipboard(ref IComDataObject dataObject)
     {
         if (Thread.CurrentThread.GetApartmentState() != ApartmentState.STA)
         {
@@ -105,7 +105,7 @@ internal class OleServicesContext
     /// <summary>
     ///  Call OLE Interop OleFlushClipboard()
     /// </summary>
-    internal static int OleFlushClipboard()
+    internal int OleFlushClipboard()
     {
         if (Thread.CurrentThread.GetApartmentState() != ApartmentState.STA)
         {
@@ -120,7 +120,7 @@ internal class OleServicesContext
     ///  called by the consumer of the data object to determine if the object that was on the clipboard at the previous
     ///  OleGetClipboard call is still on the Clipboard.
     /// </summary>
-    internal static int OleIsCurrentClipboard(IComDataObject dataObject)
+    internal int OleIsCurrentClipboard(IComDataObject dataObject)
     {
         if (Thread.CurrentThread.GetApartmentState() != ApartmentState.STA)
         {
@@ -133,7 +133,7 @@ internal class OleServicesContext
     /// <summary>
     ///  Call OLE Interop DoDragDrop().  Initiate OLE DragDrop.
     /// </summary>
-    internal static void OleDoDragDrop(
+    internal void OleDoDragDrop(
         IComDataObject dataObject,
         UnsafeNativeMethods.IOleDropSource dropSource,
         int allowedEffects,
@@ -165,7 +165,7 @@ internal class OleServicesContext
     /// <summary>
     ///  Call OLE Interop RegisterDragDrop()
     /// </summary>
-    internal static int OleRegisterDragDrop(HandleRef windowHandle, UnsafeNativeMethods.IOleDropTarget dropTarget)
+    internal int OleRegisterDragDrop(HandleRef windowHandle, UnsafeNativeMethods.IOleDropTarget dropTarget)
     {
         if (Thread.CurrentThread.GetApartmentState() != ApartmentState.STA)
         {
@@ -178,7 +178,7 @@ internal class OleServicesContext
     /// <summary>
     ///  Call OLE Interop RevokeDragDrop()
     /// </summary>
-    internal static int OleRevokeDragDrop(HandleRef windowHandle)
+    internal int OleRevokeDragDrop(HandleRef windowHandle)
     {
         if (Thread.CurrentThread.GetApartmentState() != ApartmentState.STA)
         {

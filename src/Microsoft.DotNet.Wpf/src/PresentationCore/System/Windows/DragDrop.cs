@@ -453,7 +453,7 @@ namespace System.Windows
 
                 // Call OLE RegisterDragDrop and it will get the drop target events during drag-and-drop
                 // operation on the drop target window.
-                OleServicesContext.OleRegisterDragDrop(
+                OleServicesContext.CurrentOleServicesContext.OleRegisterDragDrop(
                     new HandleRef(null, windowHandle),
                     (UnsafeNativeMethods.IOleDropTarget)oleDropTarget);
             }
@@ -464,13 +464,13 @@ namespace System.Windows
         /// </summary>
         /// <param name="windowHandle">
         /// The window handle that can accept drop.
-        /// </param>        
+        /// </param>
         internal static void RevokeDropTarget(IntPtr windowHandle)
         {
             if (windowHandle != IntPtr.Zero)
             {
                 // Call OLE RevokeDragDrop to revoke the droppable target window.
-                OleServicesContext.OleRevokeDragDrop(
+                OleServicesContext.CurrentOleServicesContext.OleRevokeDragDrop(
                     new HandleRef(null, windowHandle));
             }
         }
@@ -575,11 +575,11 @@ namespace System.Windows
             // Call OLE DoDragDrop and it will hanlde all mouse and keyboard input until drop the object.
             // We don't need to check the error return since PreserveSig attribute is defined as "false"
             // which will pops up the exception automatically.
-            OleServicesContext.OleDoDragDrop(
-                                                            (IComDataObject)dataObject,
-                                                            (UnsafeNativeMethods.IOleDropSource)oleDragSource,
-                                                            (int)allowedEffects,
-                                                            dwEffect);
+            OleServicesContext.CurrentOleServicesContext.OleDoDragDrop(
+                (IComDataObject)dataObject,
+                (UnsafeNativeMethods.IOleDropSource)oleDragSource,
+                (int)allowedEffects,
+                dwEffect);
 
             // return the drop effect of DragDrop.
             return (DragDropEffects)dwEffect[0];
@@ -588,7 +588,7 @@ namespace System.Windows
         #endregion Private Methods
     }
 
-    #endregion DragDrop    
+    #endregion DragDrop
 
 
     #region OleDragSource
