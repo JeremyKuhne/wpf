@@ -54,7 +54,7 @@ public static class Clipboard
         while (true)
         {
             // Clear the system clipboard by calling OleSetClipboard with null parameter.
-            int hr = OleServicesContext.OleSetClipboard(null);
+            int hr = OleServicesContext.CurrentOleServicesContext.OleSetClipboard(null);
 
             if (NativeMethods.Succeeded(hr))
             {
@@ -131,7 +131,7 @@ public static class Clipboard
 
         while (true)
         {
-            int hr = OleServicesContext.OleFlushClipboard();
+            int hr = OleServicesContext.CurrentOleServicesContext.OleFlushClipboard();
 
             if (NativeMethods.Succeeded(hr))
             {
@@ -320,7 +320,7 @@ public static class Clipboard
             int hr;
             while (true)
             {
-                hr = OleServicesContext.OleIsCurrentClipboard(comDataObject);
+                hr = OleServicesContext.CurrentOleServicesContext.OleIsCurrentClipboard(comDataObject);
 
                 if (NativeMethods.Succeeded(hr) || (--i == 0))
                 {
@@ -391,7 +391,7 @@ public static class Clipboard
         while (true)
         {
             // Clear the system clipboard by calling OleSetClipboard with null parameter.
-            int hr = OleServicesContext.OleSetClipboard(dataObject);
+            int hr = OleServicesContext.CurrentOleServicesContext.OleSetClipboard(dataObject);
 
             if (NativeMethods.Succeeded(hr))
             {
@@ -428,7 +428,7 @@ public static class Clipboard
         while (true)
         {
             oleDataObject = null;
-            int hr = OleServicesContext.OleGetClipboard(ref oleDataObject);
+            int hr = OleServicesContext.CurrentOleServicesContext.OleGetClipboard(ref oleDataObject);
 
             if (NativeMethods.Succeeded(hr))
             {
