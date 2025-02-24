@@ -453,7 +453,7 @@ namespace System.Windows
 
                 // Call OLE RegisterDragDrop and it will get the drop target events during drag-and-drop
                 // operation on the drop target window.
-                OleServicesContext.CurrentOleServicesContext.OleRegisterDragDrop(
+                OleServicesContext.OleRegisterDragDrop(
                     new HandleRef(null, windowHandle),
                     (UnsafeNativeMethods.IOleDropTarget)oleDropTarget);
             }
@@ -470,7 +470,7 @@ namespace System.Windows
             if (windowHandle != IntPtr.Zero)
             {
                 // Call OLE RevokeDragDrop to revoke the droppable target window.
-                OleServicesContext.CurrentOleServicesContext.OleRevokeDragDrop(
+                OleServicesContext.OleRevokeDragDrop(
                     new HandleRef(null, windowHandle));
             }
         }
@@ -575,7 +575,7 @@ namespace System.Windows
             // Call OLE DoDragDrop and it will hanlde all mouse and keyboard input until drop the object.
             // We don't need to check the error return since PreserveSig attribute is defined as "false"
             // which will pops up the exception automatically.
-            OleServicesContext.CurrentOleServicesContext.OleDoDragDrop(
+            OleServicesContext.OleDoDragDrop(
                                                             (IComDataObject)dataObject,
                                                             (UnsafeNativeMethods.IOleDropSource)oleDragSource,
                                                             (int)allowedEffects,
