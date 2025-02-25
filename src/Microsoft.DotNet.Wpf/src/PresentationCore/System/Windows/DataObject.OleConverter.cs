@@ -532,7 +532,7 @@ public sealed partial class DataObject
                 {
                     if (NrbfDecoder.Decode(stream, leaveOpen: true).TryGetFrameworkObject(out value))
                     {
-                        return null;
+                        return value;
                     }
                 }
                 catch (Exception ex) when (!ex.IsCriticalException())
